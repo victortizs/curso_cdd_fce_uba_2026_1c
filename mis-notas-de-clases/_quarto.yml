@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Mis Notas de Ciencia de Datos"
+  navbar:
+    left:
+      - href: index.qmd
+      - text: "Clases"
+        menu:
+        - contenido/clase-01-20260313.ipynb
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    lang: es
+    code-fold: true    # Keeps code blocks collapsed until clicked
+    code-tools:
+      source: true    # Hides the raw source code of the page
+      toggle: true     # Allows readers to hide/show code blocks

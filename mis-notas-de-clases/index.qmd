@@ -1,0 +1,10 @@
+---
+title: "Bitácora de Clases"
+---
+
+Hola! Aquí podes ver el material renderizado o descargar los notebooks originales para lo que quieras.
+
+### 2026 - Cuatrimestre 1
+* Clase 01: Presentación y tips generales de cursada
+    * [Ver online](./contenido/clase-01-20260313.ipynb) 
+    
