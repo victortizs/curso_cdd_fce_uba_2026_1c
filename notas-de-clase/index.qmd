@@ -3,7 +3,7 @@ title: "Bitácora de Clases"
 toc: false
 ---
 
-Hola! Aquí podes ver el material renderizado o descargar los notebooks originales para lo que quieras.
+Hola! Aquí podes ver el material renderizado o descargar las notebooks originales para lo que quieras.
 
 ## 📂 Repositorio 2026 - 1C
 
@@ -11,9 +11,10 @@ Hola! Aquí podes ver el material renderizado o descargar los notebooks original
 |:---|:---:|:---:|:---:|
 | **00: Intro** | [📖 Leer Online](./contenido/clase-00-20260313.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/notas-de-clase/contenido/clase-00-20260313.ipynb" download="clase-00-20260313.ipynb" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | <a href="https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/notas-de-clase/contenido/clase-00-20260313.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> |
 
-> **Nota:** Para bajar la notebook original tenés dos maneras:
+> **Nota:** Para bajar la notebook original tenés tres maneras:
 >
 > - Sobre el botón **Descargar**, hacé **Click Derecho > Guardar enlace como…**;
-> - Apretá el botón y se abrirá una pestaña nueva en formato JSON (JavaScript Object Notation), luego apretá **Ctrl+S** o hacé **Click Derecho > Guardar como...** y quitá la extensión .txt del nombre del archivo, de manera que quede .ipynb al final.
+> - Apretá el botón **Descargar**, se abrirá una pestaña nueva en formato JSON, luego apretá **Ctrl+S** o hacé **Click Derecho > Guardar como...** y quitá .txt del nombre del archivo, de modo que quede .ipynb como extensión;
+> - Apretá el botón **Open in Colab**, se abrirá una pestaña nueva donde podrás ver y editar la notebook online (básicamente una máquina virtual de Google corriendo Jupyter). En el menú superior, **Archivo > Guardar una copia en Drive** (quizá pida permisos la primera vez) o **Descargar**, esta última permite bajar el archivo como .py o .ipynb.
 >
 > Listo!
