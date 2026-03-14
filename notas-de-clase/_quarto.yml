@@ -12,12 +12,12 @@ website:
       - href: index.qmd
       - text: "Clases"
         menu:
-        - contenido/clase-01-20260313.ipynb
+        - contenido/clase-00-20260313.ipynb
   page-footer:
     left: "Ciencia de Datos para Econ. y Neg. - Sidicaro Nicolás Leonardo"
-    center: |
-      [Repo oficial](https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026) |
-      [Fork de este autor](https://github.com/victortizs/curso_cdd_fce_uba_2026_1c)
+    center:
+      <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026" target="_blank" rel="noopener noreferrer">Repo oficial</a> |
+      <a href="https://github.com/victortizs/curso_cdd_fce_uba_2026_1c" target="_blank" rel="noopener noreferrer">Fork de este autor</a>
     right: "© 2026"
 
 format:
