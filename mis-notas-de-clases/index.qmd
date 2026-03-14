@@ -12,7 +12,7 @@ Hola! Aquí podes ver el material renderizado o descargar los notebooks original
 
 > **Nota:** Para bajar la notebook original tenés dos maneras:
 >
-> - Hace **Click Derecho > Guardar enlace como…** sobre el botón Descargar;
-> - Apreta el botón y se abrirá una pestaña nueva en formato JSON (JavaScript Object Notation), luego apreta **Ctrl+S** o hace **Click Derecho > Guardar como...** y quita la extensión .txt del nombre del archivo, de manera que quede .ipynb al final.
+> - Sobre el botón **Descargar**, hacé **Click Derecho > Guardar enlace como…**;
+> - Apretá el botón y se abrirá una pestaña nueva en formato JSON (JavaScript Object Notation), luego apretá **Ctrl+S** o hacé **Click Derecho > Guardar como...** y quitá la extensión .txt del nombre del archivo, de manera que quede .ipynb al final.
 >
 > Listo!
