@@ -9,7 +9,7 @@ Hola! Aquí podes ver el material renderizado o descargar los notebooks original
 
 | Clase | Visualización | Notebook Editable | Nube |
 |:---|:---:|:---:|:---:|
-| **01: Intro** | [📖 Leer Online](./contenido/clase-01-20260313.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/mis-notas-de-clases/contenido/clase-01-20260313.ipynb" download="clase-01-20260313.ipynb" target="_blank" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/mis-notas-de-clases/contenido/clase-01-20260313.ipynb) |
+| **01: Intro** | [📖 Leer Online](./contenido/clase-01-20260313.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/notas-de-clase/contenido/clase-01-20260313.ipynb" download="./contenido/clase-01-20260313.ipynb" target="_blank" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/notas-de-clase/contenido/clase-01-20260313.ipynb) |
 
 > **Nota:** Para bajar la notebook original tenés dos maneras:
 >
