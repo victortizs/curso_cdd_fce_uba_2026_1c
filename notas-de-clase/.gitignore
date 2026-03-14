@@ -3,3 +3,4 @@ yaml_header_helper.txt
 **/*.quarto_ipynb
 /_site/
 /contenido/outputs/
+/contenido/.ipynb_checkpoints
