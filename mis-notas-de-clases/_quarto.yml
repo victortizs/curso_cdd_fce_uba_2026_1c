@@ -24,6 +24,7 @@ format:
   html:
     theme: cosmo
     toc: true
+    toc-depth: 2
     lang: es
     code-fold: true    # Keeps code blocks collapsed until clicked
     code-tools:

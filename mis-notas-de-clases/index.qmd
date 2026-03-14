@@ -1,5 +1,6 @@
 ---
 title: "Bitácora de Clases"
+toc: false
 ---
 
 Hola! Aquí podes ver el material renderizado o descargar los notebooks originales para lo que quieras.
