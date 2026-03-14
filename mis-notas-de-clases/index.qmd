@@ -4,7 +4,15 @@ title: "Bitácora de Clases"
 
 Hola! Aquí podes ver el material renderizado o descargar los notebooks originales para lo que quieras.
 
-### 2026 - Cuatrimestre 1
-* Clase 01: Presentación y tips generales de cursada
-    * [Ver online](./contenido/clase-01-20260313.ipynb) 
-    
+## 📂 Repositorio 2026 - 1C
+
+| Clase | Visualización | Notebook Editable | Nube |
+|:---|:---:|:---:|:---:|
+| **01: Intro** | [📖 Leer Online](./contenido/clase-01-20260313.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/mis-notas-de-clases/contenido/clase-01-20260313.ipynb" download="clase-01-20260313.ipynb" target="_blank" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/mis-notas-de-clases/contenido/clase-01-20260313.ipynb) |
+
+> **Nota:** Para bajar la notebook original tenés dos maneras:
+>
+> - Hace **Click Derecho > Guardar enlace como…** sobre el botón Descargar;
+> - Apreta el botón y se abrirá una pestaña nueva en formato JSON (JavaScript Object Notation), luego apreta **Ctrl+S** o hace **Click Derecho > Guardar como...** y quita la extensión .txt del nombre del archivo, de manera que quede .ipynb al final.
+>
+> Listo!

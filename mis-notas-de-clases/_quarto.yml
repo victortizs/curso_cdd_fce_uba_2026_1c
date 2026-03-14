@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - "contenido/*.ipynb"
 
 website:
   title: "Mis Notas de Ciencia de Datos"
@@ -10,6 +12,12 @@ website:
       - text: "Clases"
         menu:
         - contenido/clase-01-20260313.ipynb
+  page-footer:
+    left: "Ciencia de Datos para Econ. y Neg. - Sidicaro Nicolás Leonardo"
+    center: |
+      [Repo oficial](https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026) |
+      [Fork de este autor](https://github.com/victortizs/curso_cdd_fce_uba_2026_1c/tree/my-study-notes)
+    right: "© 2026"
 
 format:
   html:
@@ -18,5 +26,5 @@ format:
     lang: es
     code-fold: true    # Keeps code blocks collapsed until clicked
     code-tools:
-      source: true    # Hides the raw source code of the page
+      source: true     # Do not hide the raw source code of the page
       toggle: true     # Allows readers to hide/show code blocks
