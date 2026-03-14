@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Bitácora de Clases",
     "section": "",
-    "text": "Hola! Aquí podes ver el material renderizado o descargar los notebooks originales para lo que quieras."
+    "text": "Hola! Aquí podes ver el material renderizado o descargar las notebooks originales para lo que quieras."
   },
   {
     "objectID": "index.html#repositorio-2026---1c",
     "href": "index.html#repositorio-2026---1c",
     "title": "Bitácora de Clases",
     "section": "📂 Repositorio 2026 - 1C",
-    "text": "📂 Repositorio 2026 - 1C\n\n\n\nClase\nVisualización\nNotebook Editable\nNube\n\n\n\n\n00: Intro\n📖 Leer Online\n📥 Descargar\n\n\n\n\n\nNota: Para bajar la notebook original tenés dos maneras:\n\nSobre el botón Descargar, hacé Click Derecho &gt; Guardar enlace como…;\nApretá el botón y se abrirá una pestaña nueva en formato JSON (JavaScript Object Notation), luego apretá Ctrl+S o hacé Click Derecho &gt; Guardar como… y quitá la extensión .txt del nombre del archivo, de manera que quede .ipynb al final.\n\nListo!"
+    "text": "📂 Repositorio 2026 - 1C\n\n\n\nClase\nVisualización\nNotebook Editable\nNube\n\n\n\n\n00: Intro\n📖 Leer Online\n📥 Descargar\n\n\n\n\n\nNota: Para bajar la notebook original tenés tres maneras:\n\nSobre el botón Descargar, hacé Click Derecho &gt; Guardar enlace como…;\nApretá el botón Descargar, se abrirá una pestaña nueva en formato JSON, luego apretá Ctrl+S o hacé Click Derecho &gt; Guardar como… y quitá .txt del nombre del archivo, de modo que quede .ipynb como extensión;\nApretá el botón Open in Colab, se abrirá una pestaña nueva donde podrás ver y editar la notebook online (básicamente una máquina virtual de Google corriendo Jupyter). En el menú superior, Archivo &gt; Guardar una copia en Drive (quizá pida permisos la primera vez) o Descargar, esta última permite bajar el archivo como .py o .ipynb.\n\nListo!"
   },
   {
     "objectID": "contenido/clase-00-20260313.html",
