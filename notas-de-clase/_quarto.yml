@@ -28,5 +28,5 @@ format:
     lang: es
     code-fold: true    # Keeps code blocks collapsed until clicked
     code-tools:
-      source: true     # Do not hide the raw source code of the page
+      source: false    # Hide the raw source code of the page
       toggle: true     # Allows readers to hide/show code blocks
