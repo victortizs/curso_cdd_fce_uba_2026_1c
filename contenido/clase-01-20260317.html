@@ -4080,7 +4080,7 @@ por número en rango:
 </section>
 <section id="ejercicio-práctico" class="level2">
 <h2 class="anchored" data-anchor-id="ejercicio-práctico">Ejercicio práctico</h2>
-<p>Consigna: Escribir algoritmos en pseudocódigo. Resto de ejercicios disponibles en anteúltima diapositiva de <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026/blob/main/clases/clase01/Clase_01_slides.pdf" target="_blank" rel="noopener noreferrer">pdf de clase 01</a>.</p>
+<p>Consigna: Escribir algoritmos en pseudocódigo. Resto de ejercicios disponibles en <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026/blob/main/clases/clase01/Clase_01_slides.pdf" target="_blank" rel="noopener noreferrer">pdf de clase 01</a>.</p>
 <p>Caso 1: Dado un listado de notas de estudiantes (0 a 10), escribí un algoritmo que clasifique a cada estudiante como “aprobado” (nota &gt;= 4), “promocionado” (nota &gt;= 7) o “desaprobado” (nota &lt; 4). Al final, mostrá cuántos hay en cada categoría.</p>
 <div id="6f2b2a5a-90e0-43e9-b751-1ab729d4ddf4" class="cell" data-execution_count="1">
 <details class="code-fold">
@@ -4113,15 +4113,15 @@ q_aprobados = 0
 q_promocionados = 0
 q_desaprobados = 0
 
-i = 0 # contador
-mientras i sea menor o igual a q_total_alumnos:
+contador = 0
+mientras el contador sea menor a q_total_alumnos:
     si (nota &gt;= 4):
         suma uno a q_aprobados
     si (nota &gt;= 7):
         suma uno a q_promocionados
     si (nota &lt; 4):
         suma uno a q_desaprobados
-    i += 1
+    contador suma 1 en cada iteración
 
 imprime(alumnos aprobados: q_aprobados)
 imprime(alumnos promocionados: q_promocionados)
