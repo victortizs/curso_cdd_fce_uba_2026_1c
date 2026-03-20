@@ -13,6 +13,7 @@ website:
       - text: "Clases"
         menu:
         - contenido/clase-00-20260313.ipynb
+        - contenido/clase-01-20260317.ipynb
   page-footer:
     left: "Ciencia de Datos para Econ. y Neg. - Sidicaro Nicolás Leonardo"
     center:
@@ -24,9 +25,9 @@ format:
   html:
     theme: cosmo
     toc: true
-    toc-depth: 2
+    toc-depth: 4
     lang: es
     code-fold: true    # Keeps code blocks collapsed until clicked
     code-tools:
-      source: false    # Hide the raw source code of the page
-      toggle: true     # Allows readers to hide/show code blocks
+      source: false    # Hide/show the raw source code of the page
+      toggle: false    # Allows readers to hide/show code blocks

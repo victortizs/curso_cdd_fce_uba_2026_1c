@@ -10,6 +10,7 @@ Notas de clase y notebooks
 | Clase | Web | Local | Nube |
 |:---|:---:|:---:|:---:|
 | **00: Intro** | [📖 Leer Online](./contenido/clase-00-20260313.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/notas-de-clase/contenido/clase-00-20260313.ipynb" download="clase-00-20260313.ipynb" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | <a href="https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/notas-de-clase/contenido/clase-00-20260313.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Abrir en Colab"></a> |
+| **01: Fundamentos** | [📖 Leer Online](./contenido/clase-01-20260317.ipynb) | <a href="https://raw.githubusercontent.com/victortizs/curso_cdd_fce_uba_2026_1c/my-study-notes/notas-de-clase/contenido/clase-01-20260317.ipynb" download="clase-01-20260317.ipynb" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm" role="button">📥 Descargar</a> | <a href="https://colab.research.google.com/github/victortizs/curso_cdd_fce_uba_2026_1c/blob/my-study-notes/notas-de-clase/contenido/clase-01-20260317.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Abrir en Colab"></a> |
 
 > **Nota:** Para bajar una notebook tenés tres maneras:
 >
