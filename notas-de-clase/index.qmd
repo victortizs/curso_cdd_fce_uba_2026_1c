@@ -16,5 +16,5 @@ Notas de clase y notebooks
 > **Nota:** Para bajar una notebook tenés tres maneras:
 >
 > * **Descarga Directa:** Hacé click derecho en Descargar > Guardar enlace como...
-> * **Corregir Extensión:** Apretá el botón Descargar, se abrirá una pestaña nueva, hacé click derecho > Guardar como… y asegurate de que termine en `.ipynb` o `.Rmd` (borrá el `.txt` si aparece).
-> * **Google Colab:** Apretá el botón Open in Colab, se abrirá una pestaña nueva, en el menú superior elegí Archivo > Guardar una copia en Drive o Descargar.
+> * **Corregir Extensión:** Apretá el botón Descargar, en la pestaña nueva > click derecho > Guardar como…; asegurate de que termine en `.ipynb` o `.Rmd` (no `.txt`) y de elegir Todos los archivos (\*.\*) en Guardar como tipo.
+> * **Google Colab:** Apretá el botón Open in Colab, en la pestaña nueva > menú superior > Archivo > Guardar una copia en Drive o Descargar.
