@@ -60,7 +60,7 @@ lista_sin_nombres = list(verdad, nro_1, nro_2, nro_3)
 cat("lista_sin_nombres: ")
 str(lista_sin_nombres)
 cat("Los nombres de sus elementos son: ",
-    if (is.null(names(lista_sin_nombres))) "no tienen" else paste(names(lista_sin_nombres), collapse = ", "),
+    if (is.null(names(lista_sin_nombres))) "no tienen nombres" else paste(names(lista_sin_nombres), collapse = ", "),
     ".", sep = "", "\n\n"
     )
 
@@ -68,7 +68,7 @@ lista_con_nombres = list(logico = verdad, entero= nro_1, texto = nro_2, real = n
 cat("lista_con_nombres: ")
 str(lista_con_nombres)
 cat("Los nombres de sus elementos son: ",
-    if (is.null(names(lista_con_nombres))) "no tienen" else paste(names(lista_con_nombres), collapse = ", "),
+    if (is.null(names(lista_con_nombres))) "no tienen nombres" else paste(names(lista_con_nombres), collapse = ", "),
     ".", sep = "", "\n\n"
     )
 ```
