@@ -3905,6 +3905,10 @@ vertical-align: -.125em;
     <a class="dropdown-item" href="../contenido/clase-02-20260320.html">
  <span class="dropdown-text">02: R setup</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../contenido/clase-03-20260327.html">
+ <span class="dropdown-text">03: Tidyverse</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -3978,6 +3982,7 @@ vertical-align: -.125em;
   <li><a href="#rmd" id="toc-rmd" class="nav-link" data-scroll-target="#rmd">Rmd</a></li>
   </ul></li>
   <li><a href="#ayuda-en-r" id="toc-ayuda-en-r" class="nav-link" data-scroll-target="#ayuda-en-r">Ayuda en R</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul>
 </nav>
     </div>
@@ -4024,7 +4029,7 @@ vertical-align: -.125em;
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">error =</span> <span class="cn">TRUE</span>, <span class="at">eval =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Clase sobre las capacidades de R y como estas se comparan a otras herramientas; instalación de RStudio (alternativa Google Colab) y GitHub Desktop client; tipos de datos, operadores, funciones básicas, archivos y ayuda en R.</p>
+<p>Esta clase trata las capacidades de R frente a otras herramientas y guía la configuración de RStudio, Colab y GitHub. Tras cubrir los fundamentos del lenguaje —desde tipos de datos hasta funciones básicas—, la teoría se consolida mediante la resolución de ejercicios prácticos.</p>
 <section id="qué-tiene-r-y-no-excel-stata-o-python" class="level2">
 <h2 class="anchored" data-anchor-id="qué-tiene-r-y-no-excel-stata-o-python">¿Qué tiene R y no Excel, Stata o Python?</h2>
 <ul>
@@ -4209,11 +4214,11 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data frame:
   id_producto precio_producto
-1           1           93.63
-2           2           93.53
-3           3           71.01
-4           4           97.76
-5           5           58.20</code></pre>
+1           1           22.54
+2           2           30.98
+3           3           84.77
+4           4           87.38
+5           5           71.37</code></pre>
 </div>
 </div>
 </section>
@@ -4233,7 +4238,7 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Columna &#39;precio_producto&#39; como vector:
-[1] 93.63 93.53 71.01 97.76 58.20
+[1] 22.54 30.98 84.77 87.38 71.37
 Clase: numeric
 
 Columna &#39;id_producto&#39; como data frame:
@@ -4260,7 +4265,7 @@ Clase: data.frame</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas dos y cuatro como vector:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
-            2.00             4.00            93.53            97.76 
+            2.00             4.00            30.98            87.38 
 
 Verifico coerción a tipo más general:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
@@ -4278,14 +4283,14 @@ Verifico coerción a tipo más general:
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas uno y dos como data frame:
   id_producto precio_producto
-1           1           93.63
-2           2           93.53
+1           1           22.54
+2           2           30.98
 
 Filas uno, tres y cuatro como data frame:
   id_producto precio_producto
-1           1           93.63
-3           3           71.01
-4           4           97.76</code></pre>
+1           1           22.54
+3           3           84.77
+4           4           87.38</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -4302,7 +4307,7 @@ $id_producto
 [1] 2 4 5
 
 $precio_producto
-[1] 93.53 97.76 58.20
+[1] 30.98 87.38 71.37
 
 
 Verifico clase:
@@ -4325,7 +4330,7 @@ Verifico clase:
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fila cuatro, columna &#39;precio_producto&#39; por nombre:
-[1] 97.76
+[1] 87.38
 [1] &quot;numeric&quot;
 
 Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
@@ -4364,9 +4369,9 @@ Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
 <div class="cell-output cell-output-stdout">
 <pre><code>Matriz &#39;m1&#39; populada por columna:
      [,1] [,2] [,3]
-[1,]    5   18    5
-[2,]   16    7    7
-[3,]   11   18   18
+[1,]   17    8   12
+[2,]   11   18    7
+[3,]   17   10    9
 
 Matriz &#39;m2&#39; populada por fila:
      [,1] [,2] [,3]
@@ -4375,12 +4380,12 @@ Matriz &#39;m2&#39; populada por fila:
 [3,]    7    8    9
 
 Vector aleatorio:
-[1] 0.51 0.22 0.18 0.23 0.64 0.55
+[1] 0.45 0.78 0.80 0.16 0.47 0.20
 
 Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:
      [,1] [,2] [,3]
-[1,] 0.51 0.18 0.64
-[2,] 0.22 0.23 0.55</code></pre>
+[1,] 0.45 0.80 0.47
+[2,] 0.78 0.16 0.20</code></pre>
 </div>
 </div>
 </section>
@@ -4435,12 +4440,12 @@ Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:
 <div class="cell-output cell-output-stdout">
 <pre><code>Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:
   r1   r2 
-0.64 0.55 
+0.47 0.20 
 
 Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:
       c
-r1 0.64
-r2 0.55</code></pre>
+r1 0.47
+r2 0.20</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -4457,9 +4462,9 @@ r2 0.55</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Convierto &#39;m1&#39; a data frame:
   V1 V2 V3
-1  5 18  5
-2 16  7  7
-3 11 18 18
+1 17  8 12
+2 11 18  7
+3 17 10  9
 Clase: data.frame</code></pre>
 </div>
 </div>
@@ -4583,7 +4588,7 @@ Clase: data.frame</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Promedio de precios de columna &#39;precio_producto&#39;:&quot;</span>, <span class="fu">mean</span>(df<span class="sc">$</span>precio_producto))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 82.826</code></pre>
+<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 59.408</code></pre>
 </div>
 </div>
 </section>
@@ -4648,6 +4653,156 @@ Clase de cada elemento de &#39;lista_sin_nombres&#39;:
 Imagen obtenida de diapositivas de clase 02.
 </figcaption>
 </figure>
+</section>
+<section id="ejercicios" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 1.1</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Ejercicio 1.1:&quot;</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>pais <span class="ot">=</span> <span class="st">&quot;Uruguay&quot;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>poblacion <span class="ot">=</span> <span class="fl">3.4</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>anio_censo <span class="ot">=</span> <span class="dv">2023</span>L</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>es_mercosur <span class="ot">=</span> <span class="cn">TRUE</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">clase &#39;pais&#39;:&quot;</span>, <span class="fu">class</span>(pais))</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">clase &#39;poblacion&#39;:&quot;</span>, <span class="fu">class</span>(poblacion))</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">clase &#39;anio_censo&#39;:&quot;</span>, <span class="fu">class</span>(anio_censo))</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">clase &#39;es_mercosur&#39;:&quot;</span>, <span class="fu">class</span>(es_mercosur))</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 1.2</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Ejercicio 1.2:&quot;</span>)</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>pbi <span class="ot">=</span> <span class="fl">77.2</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>pbi_check <span class="ot">=</span> <span class="fl">77.2</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>poblacion_check <span class="ot">=</span> <span class="fl">3.4</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>pbi_pc <span class="ot">=</span> <span class="fl">77.2</span> <span class="sc">/</span> (<span class="fl">3.4</span> <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">El pbi per cápita de Uruguay son: USD&quot;</span>, pbi_pc)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ejercicio 1.1:
+clase &#39;pais&#39;: character
+clase &#39;poblacion&#39;: numeric
+clase &#39;anio_censo&#39;: integer
+clase &#39;es_mercosur&#39;: logical
+
+Ejercicio 1.2:
+El pbi per cápita de Uruguay son: USD 22705.88</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 1.3</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(&quot;Ejercicio 1.3:&quot;)</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>mi_variable <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Llamando a &#39;Mi_Variable&#39;:&quot;</span>, Mi_Variable)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object &#39;Mi_Variable&#39; not found</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercio 2.1</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Ejercicio 2.1:&quot;</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>paises <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Brasil&quot;</span>, <span class="st">&quot;Paraguay&quot;</span>, <span class="st">&quot;Uruguay&quot;</span>, <span class="st">&quot;Venezuela&quot;</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">46</span>, <span class="dv">214</span>, <span class="dv">7</span>, <span class="fl">3.4</span>, <span class="dv">28</span>) <span class="co"># en millones</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Vector &#39;paises&#39;:&quot;</span>, <span class="fu">paste</span>(paises, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Vector &#39;poblaciones&#39; en millones:&quot;</span>, <span class="fu">paste</span>(poblaciones, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 2.2</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Ejercicio 2.2:&quot;</span>)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Tercer elemento de &#39;paises&#39;:&quot;</span>, paises[<span class="dv">3</span>])</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos uno, dos y cuatro de &#39;poblaciones&#39;:&quot;</span>, <span class="fu">paste</span>(poblaciones[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">4</span>)], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Mostrar todos los países excepto el último:&quot;</span>, <span class="fu">paste</span>(paises[<span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(paises)<span class="sc">-</span><span class="dv">1</span>)], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 2.3</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Ejercicio 2.3:&quot;</span>)</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>anios <span class="ot">=</span> <span class="dv">2000</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">El vector &#39;anios&#39; tiene&quot;</span>, <span class="fu">length</span>(anios), <span class="st">&quot;elementos&quot;</span>)</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 2.4</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Ejercicio 2.4:&quot;</span>)</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">La población total del Mercosur es de&quot;</span>, <span class="fu">sum</span>(poblaciones), <span class="st">&quot;millones&quot;</span>)</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">La población promedio del Mercosur es de&quot;</span>, <span class="fu">mean</span>(poblaciones), <span class="st">&quot;millones&quot;</span>)</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">El país con mayor población es &quot;</span>, paises[<span class="fu">which.max</span>(poblaciones)], <span class="st">&quot;, con &quot;</span>,(<span class="fu">max</span>(poblaciones)), <span class="st">&quot; millones&quot;</span>, <span class="at">sep =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 2.5</span></span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Ejercicio 2.5:&quot;</span>)</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Los países con más de 10 millones de habitantes son:&quot;</span>, <span class="fu">paste</span>(paises[poblaciones <span class="sc">&gt;</span> <span class="dv">10</span>], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ejercicio 2.1:
+Vector &#39;paises&#39;: Argentina, Brasil, Paraguay, Uruguay, Venezuela
+Vector &#39;poblaciones&#39; en millones: 46, 214, 7, 3.4, 28
+
+Ejercicio 2.2:
+Tercer elemento de &#39;paises&#39;: Paraguay
+Elementos uno, dos y cuatro de &#39;poblaciones&#39;: 46, 214, 3.4
+Mostrar todos los países excepto el último: Argentina, Brasil, Paraguay, Uruguay
+
+Ejercicio 2.3:
+El vector &#39;anios&#39; tiene 25 elementos
+
+Ejercicio 2.4:
+La población total del Mercosur es de 298.4 millones
+La población promedio del Mercosur es de 59.68 millones
+El país con mayor población es Brasil, con 214 millones
+
+Ejercicio 2.5:
+Los países con más de 10 millones de habitantes son: Argentina, Brasil, Venezuela</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio opcional</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Ejercicio opcional:</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>precio <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">800</span><span class="sc">:</span><span class="dv">1300</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>stock <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>categoria <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;local&quot;</span>, <span class="st">&quot;importado&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;importado&quot;</span>, <span class="st">&quot;local&quot;</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>supermercado <span class="ot">=</span> <span class="fu">data.frame</span>(nombre, categoria, stock, precio)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;1. Mostrar solo productos con precio mayor a 1000:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>supermercado[supermercado<span class="sc">$</span>precio <span class="sc">&gt;</span> <span class="dv">1000</span>, ] <span class="co"># o subset(supermercado, precio &gt; 1000)</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">2. Calcular el valor total de stock y agregarlo como columna:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>supermercado<span class="sc">$</span>valor_stock <span class="ot">=</span> supermercado<span class="sc">$</span>stock <span class="sc">*</span> supermercado<span class="sc">$</span>precio</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>supermercado</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">3. El valor total del inventario es:&quot;</span>, <span class="fu">sum</span>(supermercado<span class="sc">$</span>valor_stock))</span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">4. El precio promedio de la categoría &#39;local&#39; es&quot;</span>, <span class="fu">round</span>(<span class="fu">sum</span>(supermercado<span class="sc">$</span>valor_stock[supermercado<span class="sc">$</span>categoria <span class="sc">==</span> <span class="st">&quot;local&quot;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(supermercado<span class="sc">$</span>stock[supermercado<span class="sc">$</span>categoria <span class="sc">==</span> <span class="st">&quot;local&quot;</span>]), <span class="dv">2</span>), <span class="st">&quot;y el de &#39;importado&#39; es&quot;</span>, <span class="fu">round</span>(<span class="fu">sum</span>(supermercado<span class="sc">$</span>valor_stock[supermercado<span class="sc">$</span>categoria <span class="sc">==</span> <span class="st">&quot;importado&quot;</span>]) <span class="sc">/</span> <span class="fu">sum</span>(supermercado<span class="sc">$</span>stock[supermercado<span class="sc">$</span>categoria <span class="sc">==</span> <span class="st">&quot;importado&quot;</span>]), <span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ejercicio opcional:
+
+1. Mostrar solo productos con precio mayor a 1000:
+  nombre categoria stock precio
+1      a     local    14   1201
+2      b importado    28   1185
+3      c     local    11   1109
+4      d importado    17   1124
+
+2. Calcular el valor total de stock y agregarlo como columna:
+  nombre categoria stock precio valor_stock
+1      a     local    14   1201       16814
+2      b importado    28   1185       33180
+3      c     local    11   1109       12199
+4      d importado    17   1124       19108
+5      e     local    25    943       23575
+
+3. El valor total del inventario es: 104876
+
+4. El precio promedio de la categoría &#39;local&#39; es 1051.76 y el de &#39;importado&#39; es 1161.96</code></pre>
+</div>
+</div>
 
 
 </section>
