@@ -1,0 +1,317 @@
+---
+title: "02: R setup"
+subtitle: "Virtual"
+author: "Victor Adrian"
+format: html
+toc: true
+output-file: "clase-02-20260320.html"
+code-overflow: wrap
+date: "March 20, 2026"
+date-format: "iso"
+embed-resources: true
+---
+
+```{r setup, include=TRUE}
+# Configurando opciones globales para doc
+# Para más info ver https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE, include=TRUE)
+```
+
+Clase sobre las capacidades de R y como estas se comparan a otras herramientas; instalación de RStudio (alternativa Google Colab) y GitHub Desktop client; tipos de datos, operadores, funciones básicas, archivos y ayuda en R.
+
+## ¿Qué tiene R y no Excel, Stata o Python?
+
+- Es gratuito -> no Excel (versión de escritorio) ni Stata
+- Muy buena visualización (ggplot2, shiny) -> mejor que Excel y Stata, y un poco que Python
+- Capaz de analizar grandes volúmenes de datos (+1M de filas) -> no Excel (ligado a hardware)
+- Comunidad grande, lo que implica un mayor número de paquetes y librerías -> no Excel ni Stata, Python es más amplio y diverso
+- Curva de aprendizaje moderada -> baja en Excel
+
+> ### Cotejo vs. Python
+> 
+> Ambos son lenguajes de programación *FOSS (Free and Open Source Software)* con una gran variedad de paquetes para ciencias de datos, pero R está enfocado a la estadística y es preferido para tareas de ramas como la econometría. Python, por su parte, tiene una gama más amplia de fines (desarrollo web, apps, juegos, *machine learning* e *IA*).
+
+## Instalación
+
+Respecto a este punto, recomiendo ver directamente las <a href="https://github.com/nsidicarocep/curso_cdd_fce_uba_1c2026/tree/main/clases/clase02" target="_blank" rel="noopener noreferrer">diapositivas de la clase 02</a>. Yo usaré VS Code como IDE (análogo a RStudio) y conda (administrador de ambientes y paquetes multiplataforma) para correr R en entornos compartamentalizados dedicados, sin tener R siempre activo en mi variable `PATH` del sistema.
+
+Esto facilita el uso de distintas versiones de R para diversos proyectos, cada uno con sus propios paquetes; además de manejar automáticamente cualquier problema en sus dependencias, al instalar nuevos y actualizar o desinstalar viejos paquetes. También facilita la transmisión exacta de ambientes a cualquiera que use conda, de nuevo, sin pedirle que instale R en todo su sistema o a nivel usuario.
+
+Tampoco uso la versión de escritorio de GitHub, sola la web, con `gh` y `git`, herramientas que usan la terminal como interfaz (comandos, parámetros y argumentos) para interactuar con repositorios.
+
+## Variables y estructuras de datos
+
+En la <a href="./clase-01-20260317.ipynb" target="_blank" rel="noopener noreferrer">nota de la clase 01</a> definí qué es una variable y qué son las estructuras de datos, así que acá me limitaré a dar otros ejemplos en R.
+
+### Lista
+
+#### Asignación
+
+```{r results="hold"}
+verdad <- TRUE
+nro_1 <- 50
+nro_2 <- "sesenta"
+nro_3 <- 4.3
+
+# Para asignar valores también vale el "="
+lista_sin_nombres = list(verdad, nro_1, nro_2, nro_3)
+
+# `cat` separa los argumentos con un espacio, por eso el `sep = ""` para poner el punto final, pero hay que agregar los espacios manualmente.
+cat("lista_sin_nombres: ")
+str(lista_sin_nombres)
+cat("Los nombres de sus elementos son: ",
+    if (is.null(names(lista_sin_nombres))) "no tienen" else paste(names(lista_sin_nombres), collapse = ", "),
+    ".", sep = "", "\n\n"
+    )
+
+lista_con_nombres = list(logico = verdad, entero= nro_1, texto = nro_2, real = nro_3)
+cat("lista_con_nombres: ")
+str(lista_con_nombres)
+cat("Los nombres de sus elementos son: ",
+    if (is.null(names(lista_con_nombres))) "no tienen" else paste(names(lista_con_nombres), collapse = ", "),
+    ".", sep = "", "\n\n"
+    )
+```
+
+#### Acceso
+
+##### Por índice/posición
+```{r results="hold"}
+cat("Elemento en cuarta posición:", lista_con_nombres[[4]])
+cat("\nClase de elemento:", class(lista_con_nombres[[4]]))
+```
+
+##### Por nombre
+```{r results="hold"}
+cat("Elementos lógico y real:\n\n")
+lista_con_nombres[c("logico", "real")]
+cat("Clase de elementos:", class(lista_con_nombres[c("logico", "real")]))
+```
+
+### Vector
+
+#### Asignación
+
+Como ya vimos, los vectores son secuencias ordenadas de igual tipo. Pero, ¿cómo logran esto?
+
+Esta clase de vector, llamada atómico, se logra gracias a la coerción de los tipos de datos que componen la secuencia a uno en común. La función *combine/concatenate* es la responsable, puesto que si R detecta que mezclas tipos con `c()`, devolverá un vector tras aplicar la coerción al tipo común más general de entre los elementos. Según, de más a menos general:
+
+***character > complex > double > integer > logical***
+
+Porque sus elementos son de igual tipo, se define a estos vectores como estructuras homogéneas.
+
+```{r results="hold"}
+cat("Clase de cada elemento de lista_sin_nombres:\n")
+sapply(lista_sin_nombres, class)
+
+cat("\nDefino un vector atómico a partir de las variables originales:\n")
+vector = c(verdad, nro_1, nro_2, nro_3)
+cat("vector =", paste(vector, collapse = ", " ))
+
+cat("\n\nClase de los mismos elementos, pero esta vez en 'vector':\n")
+sapply(vector, class)
+```
+
+> **Nota 1:** Se coerce usando las siguientes funciones: `as.integer(), as.double()/as.numeric(), as.complex(), as.character(), as.list().`
+
+#### Acceso
+
+##### Por índice/posición
+
+```{r results="hold"}
+cat("Elemento en cuarta posición:", vector[4])
+cat("\nElementos en primera y cuarta posición:", paste(vector[c(1, 4)], collapse = ", "))
+cat("\nElementos en segunda, tercera y cuarta posición:", paste(vector[2:4], collapse = ", "))
+```
+
+### Data frame
+
+#### Asignación
+
+```{r results="hold"}
+id_producto = 1:5
+precio_producto = round(runif(5, min = 5, max = 100), 2)
+df = data.frame(id_producto = id_producto, precio_producto = precio_producto)
+cat("Data frame:\n")
+df
+```
+
+#### Acceso
+
+##### Por columna
+
+```{r results="hold"}
+cat("Columna 'precio_producto' como vector:\n")
+df$precio_producto # igual que df[[ "precio_producto" ]]
+cat("Clase:", class(df$precio_producto))
+cat("\n\nColumna 'id_producto' como data frame:\n")
+df[1]
+cat("Clase:", class(df[1]))
+```
+
+##### Por fila
+
+```{r results="hold"}
+cat("Filas dos y cuatro como vector:\n")
+unlist(df[c(2, 4), ])
+cat("\nVerifico coerción a tipo más general:\n")
+sapply(unlist(df[c(2, 4), ]), class)
+```
+
+```{r results="hold"}
+cat("Filas uno y dos como data frame:\n")
+df[1:2, ]
+cat("\nFilas uno, tres y cuatro como data frame:\n")
+df[c(1, 3:4), ]
+```
+
+```{r results="hold"}
+cat("Filas dos, cuatro y cinco como lista:\n")
+as.list(df[c(2, 4:5), ])
+cat("\nVerifico clase:\n")
+sapply(df[c(2, 4:5), ], class)
+```
+
+##### Por fila y columna
+
+```{r results="hold"}
+cat("Fila cuatro, columna 'precio_producto' por nombre:\n")
+df[4, c("precio_producto")] # igual que df$precio_producto[4]
+class(df[4, c("precio_producto")])
+cat("\nFilas cuatro y cinco, columna 'id_producto' por posición:\n")
+df[4:5, c(1)]
+sapply(df[4:5, c(1)], class)
+```
+
+> **Nota 2:** Llamar más de una columna convertiría el resultado de valor o vector atómico a *data frame*.
+
+### Matriz
+
+#### Asignación
+
+```{r results="hold"}
+m1 = matrix(sample(5:20, size = 9, replace = TRUE), nrow = 3, ncol = 3)
+cat("Matriz 'm1' populada por columna:\n")
+m1
+
+m2 = matrix(1:9, nrow = 3, byrow = TRUE)
+cat("\nMatriz 'm2' populada por fila:\n")
+m2
+
+m3 = round(runif(6, min = 0, max = 1), 2)
+cat("\nVector aleatorio:\n")
+m3
+dim(m3) = c(2, 3)
+cat("\nMatriz 'm3' generada a partir de vector aleatorio, populada por columna:\n")
+m3
+```
+
+#### Acceso
+
+##### Por índice/posición
+
+```{r results="hold"}
+cat("Elemento en F2C2 de 'm2':\n")
+m2[2, 2]
+cat("\nElementos en C2 de 'm2', como vector:\n")
+m2[, 2]
+cat("\nElementos en C2 de 'm2', como submatriz:\n")
+m2[, 2, drop = FALSE]
+cat("\nElementos en F1/F2 y C1/C3 de 'm2', como submatriz:\n")
+m2[c(1, 2), c(1, 3)]
+```
+
+##### Por nombre
+
+```{r results="hold"}
+rownames(m3) = c("r1", "r2")
+colnames(m3) = c("a", "b", "c")
+cat("Elementos en columna 'c' de 'm3' como vector:\n")
+m3[, "c"]
+cat("\nElementos en columna 'c' de 'm3' como submatriz:\n")
+m3[, "c", drop = FALSE]
+```
+
+> **Nota 3:** Se puede convertir de matriz a *data frame* y viceversa con `as.data.frame()` y `as.matrix()`, respectivamente.
+
+```{r results="hold"}
+cat("Convierto 'm1' a data frame:\n")
+df_from_m1 = as.data.frame(m1)
+df_from_m1
+cat("Clase:", class(df_from_m1))
+```
+
+## Operadores
+
+| Tipo | Descripción | Símbolo |
+|:---|:---|:---|
+| Aritmético | Suma | `+` |
+| Aritmético | Resta | `-` |
+| Aritmético | Multiplicación | `*` |
+| Aritmético | División | `/` |
+| Aritmético | Potencia | `^` |
+| Aritmético | Módulo | `%%` |
+| Comparación | Igual | `==` |
+| Comparación | Distinto | `!=` |
+| Comparación | Mayor | `>` |
+| Comparación | Menor | `<` |
+| Comparación | Mayor o igual | `>=` |
+| Comparación | Menor o igual | `<=` |
+| Lógico | Y | `&` |
+| Lógico | O | `|` |
+| Lógico | NO | `!` |
+| Lógico | Inclusión | `%in%` |
+
+## Funciones básicas
+
+### Sum
+
+```{r results="hold"}
+cat("Suma elementos de C3 de 'm2':", sum(m2[, 3]))
+```
+
+### Mean
+
+```{r results="hold"}
+cat("Promedio de precios de columna 'precio_producto':", mean(df$precio_producto))
+```
+
+### Length
+
+```{r results="hold"}
+cat("Cantidad de elementos que componen a 'vector':", length(vector))
+```
+
+### Class
+
+```{r results="hold"}
+cat("Clase de 'lista_sin_nombres':", class(lista_sin_nombres))
+cat("\n\nClase de cada elemento de 'lista_sin_nombres':\n")
+sapply(lista_sin_nombres, class)
+```
+
+## Tipos de archivo (extensión)
+
+### R
+
+- Extensión `.R`
+- Se ejecuta línea por línea o por bloque (RStudio detecta automática los bloques)
+- Útil para scripts, funciones y automatización
+- Admite comentarios con `#`
+
+### Rmd
+
+- Extensión `.Rmd`
+- Acepta Markdown (un lenguaje ligero que permite añadir formato a documentos de texto plano)
+- Si la aplicación de Markdown lo permite, también acepta HTML *tags*
+- Guarda y ejecuta código dentro de *chunks*
+- Ideal para generar y compartir reportes de alta calidad, aun interactivos
+- Capaz de adaptar *outputs* a presentaciones, documentos y <a href="https://rmarkdown.rstudio.com/lesson-9.html" target="_blank" rel="noopener noreferrer">más</a>
+
+## Ayuda en R
+
+<figure>
+    <img src="images\clase_02_filmina_ayuda_en_R.svg" width="650" height="400"
+        alt="Diapositiva de clase 02">
+    <figcaption>Imagen obtenida de diapositivas de clase 02.</figcaption>
+</figure>
