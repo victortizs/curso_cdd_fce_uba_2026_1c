@@ -4209,11 +4209,11 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data frame:
   id_producto precio_producto
-1           1           96.43
-2           2           37.87
-3           3           79.99
-4           4           88.73
-5           5           79.12</code></pre>
+1           1           48.78
+2           2           66.45
+3           3           72.68
+4           4            5.29
+5           5           21.48</code></pre>
 </div>
 </div>
 </section>
@@ -4233,7 +4233,7 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Columna &#39;precio_producto&#39; como vector:
-[1] 96.43 37.87 79.99 88.73 79.12
+[1] 48.78 66.45 72.68  5.29 21.48
 Clase: numeric
 
 Columna &#39;id_producto&#39; como data frame:
@@ -4260,7 +4260,7 @@ Clase: data.frame</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas dos y cuatro como vector:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
-            2.00             4.00            37.87            88.73 
+            2.00             4.00            66.45             5.29 
 
 Verifico coerción a tipo más general:
     id_producto1     id_producto2 precio_producto1 precio_producto2 
@@ -4278,14 +4278,14 @@ Verifico coerción a tipo más general:
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas uno y dos como data frame:
   id_producto precio_producto
-1           1           96.43
-2           2           37.87
+1           1           48.78
+2           2           66.45
 
 Filas uno, tres y cuatro como data frame:
   id_producto precio_producto
-1           1           96.43
-3           3           79.99
-4           4           88.73</code></pre>
+1           1           48.78
+3           3           72.68
+4           4            5.29</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -4302,7 +4302,7 @@ $id_producto
 [1] 2 4 5
 
 $precio_producto
-[1] 37.87 88.73 79.12
+[1] 66.45  5.29 21.48
 
 
 Verifico clase:
@@ -4325,7 +4325,7 @@ Verifico clase:
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fila cuatro, columna &#39;precio_producto&#39; por nombre:
-[1] 88.73
+[1] 5.29
 [1] &quot;numeric&quot;
 
 Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
@@ -4364,9 +4364,9 @@ Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
 <div class="cell-output cell-output-stdout">
 <pre><code>Matriz &#39;m1&#39; populada por columna:
      [,1] [,2] [,3]
-[1,]   16   17   18
-[2,]   16    7   12
-[3,]   16   10    8
+[1,]    8   13   13
+[2,]    9    9   10
+[3,]   11    5    5
 
 Matriz &#39;m2&#39; populada por fila:
      [,1] [,2] [,3]
@@ -4375,12 +4375,12 @@ Matriz &#39;m2&#39; populada por fila:
 [3,]    7    8    9
 
 Vector aleatorio:
-[1] 0.95 0.32 0.93 0.51 0.66 0.72
+[1] 0.18 0.28 0.06 0.19 0.71 0.09
 
 Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:
      [,1] [,2] [,3]
-[1,] 0.95 0.93 0.66
-[2,] 0.32 0.51 0.72</code></pre>
+[1,] 0.18 0.06 0.71
+[2,] 0.28 0.19 0.09</code></pre>
 </div>
 </div>
 </section>
@@ -4435,12 +4435,12 @@ Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:
 <div class="cell-output cell-output-stdout">
 <pre><code>Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:
   r1   r2 
-0.66 0.72 
+0.71 0.09 
 
 Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:
       c
-r1 0.66
-r2 0.72</code></pre>
+r1 0.71
+r2 0.09</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -4457,9 +4457,9 @@ r2 0.72</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Convierto &#39;m1&#39; a data frame:
   V1 V2 V3
-1 16 17 18
-2 16  7 12
-3 16 10  8
+1  8 13 13
+2  9  9 10
+3 11  5  5
 Clase: data.frame</code></pre>
 </div>
 </div>
@@ -4583,7 +4583,7 @@ Clase: data.frame</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Promedio de precios de columna &#39;precio_producto&#39;:&quot;</span>, <span class="fu">mean</span>(df<span class="sc">$</span>precio_producto))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 76.428</code></pre>
+<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 42.936</code></pre>
 </div>
 </div>
 </section>
