@@ -4016,15 +4016,6 @@ vertical-align: -.125em;
 </header>
 
 
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurando opciones globales para doc</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Para más info ver https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">error =</span> <span class="cn">TRUE</span>, <span class="at">eval =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<p>Clase sobre las capacidades de R y como estas se comparan a otras herramientas; instalación de RStudio (alternativa Google Colab) y GitHub Desktop client; tipos de datos, operadores, funciones básicas, archivos y ayuda en R.</p>
 <section id="qué-tiene-r-y-no-excel-stata-o-python" class="level2">
 <h2 class="anchored" data-anchor-id="qué-tiene-r-y-no-excel-stata-o-python">¿Qué tiene R y no Excel, Stata o Python?</h2>
 <ul>
@@ -4052,86 +4043,56 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="lista">Lista</h3>
 <section id="asignación" class="level4">
 <h4 class="anchored" data-anchor-id="asignación">Asignación</h4>
-<div class="cell">
+<div id="9ea1a035" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>verdad <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>nro_1 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>nro_2 <span class="ot">&lt;-</span> <span class="st">&quot;sesenta&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>nro_3 <span class="ot">&lt;-</span> <span class="fl">4.3</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para asignar valores también vale el &quot;=&quot;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lista_sin_nombres <span class="ot">=</span> <span class="fu">list</span>(verdad, nro_1, nro_2, nro_3)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># `cat` separa los argumentos con un espacio, por eso el `sep = &quot;&quot;` para poner el punto final, pero hay que agregar los espacios manualmente.</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;lista_sin_nombres: &quot;</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(lista_sin_nombres)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Los nombres de sus elementos son: &quot;</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(<span class="fu">names</span>(lista_sin_nombres))) <span class="st">&quot;no tienen&quot;</span> <span class="cf">else</span> <span class="fu">paste</span>(<span class="fu">names</span>(lista_sin_nombres), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;.&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>lista_con_nombres <span class="ot">=</span> <span class="fu">list</span>(<span class="at">logico =</span> verdad, <span class="at">entero=</span> nro_1, <span class="at">texto =</span> nro_2, <span class="at">real =</span> nro_3)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;lista_con_nombres: &quot;</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(lista_con_nombres)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Los nombres de sus elementos son: &quot;</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(<span class="fu">names</span>(lista_con_nombres))) <span class="st">&quot;no tienen&quot;</span> <span class="cf">else</span> <span class="fu">paste</span>(<span class="fu">names</span>(lista_con_nombres), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>),</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;.&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>verdad <span class="op">&lt;-</span> TRUE</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nro_1 <span class="op">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nro_2 <span class="op">&lt;-</span> <span class="st">&quot;sesenta&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nro_3 <span class="op">&lt;-</span> <span class="fl">4.3</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para asignar valores también vale el &quot;=&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lista_sin_nombres <span class="op">=</span> <span class="bu">list</span>(verdad, nro_1, nro_2, nro_3)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># `cat` separa los argumentos con un espacio, por eso el `sep = &quot;&quot;` para poner el punto final, pero hay que agregar los espacios manualmente.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;lista_sin_nombres: &quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(lista_sin_nombres)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Los nombres de sus elementos son: &quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">is</span>.null(names(lista_sin_nombres))) <span class="st">&quot;no tienen&quot;</span> <span class="cf">else</span> paste(names(lista_sin_nombres), collapse <span class="op">=</span> <span class="st">&quot;, &quot;</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;.&quot;</span>, sep <span class="op">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>lista_con_nombres <span class="op">=</span> <span class="bu">list</span>(logico <span class="op">=</span> verdad, entero<span class="op">=</span> nro_1, texto <span class="op">=</span> nro_2, real <span class="op">=</span> nro_3)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;lista_con_nombres: &quot;</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(lista_con_nombres)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Los nombres de sus elementos son: &quot;</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">is</span>.null(names(lista_con_nombres))) <span class="st">&quot;no tienen&quot;</span> <span class="cf">else</span> paste(names(lista_con_nombres), collapse <span class="op">=</span> <span class="st">&quot;, &quot;</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;.&quot;</span>, sep <span class="op">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>lista_sin_nombres: List of 4
- $ : logi TRUE
- $ : num 50
- $ : chr &quot;sesenta&quot;
- $ : num 4.3
-Los nombres de sus elementos son: no tienen.
-
-lista_con_nombres: List of 4
- $ logico: logi TRUE
- $ entero: num 50
- $ texto : chr &quot;sesenta&quot;
- $ real  : num 4.3
-Los nombres de sus elementos son: logico, entero, texto, real.</code></pre>
-</div>
 </div>
 </section>
 <section id="acceso" class="level4">
 <h4 class="anchored" data-anchor-id="acceso">Acceso</h4>
 <section id="por-índiceposición" class="level5">
 <h5 class="anchored" data-anchor-id="por-índiceposición">Por índice/posición</h5>
-<div class="cell">
+<div id="341a3d54" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Elemento en cuarta posición:&quot;</span>, lista_con_nombres[[<span class="dv">4</span>]])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Clase de elemento:&quot;</span>, <span class="fu">class</span>(lista_con_nombres[[<span class="dv">4</span>]]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Elemento en cuarta posición:&quot;</span>, lista_con_nombres[[<span class="dv">4</span>]])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Clase de elemento:&quot;</span>, <span class="kw">class</span>(lista_con_nombres[[<span class="dv">4</span>]]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Elemento en cuarta posición: 4.3
-Clase de elemento: numeric</code></pre>
-</div>
 </div>
 </section>
 <section id="por-nombre" class="level5">
 <h5 class="anchored" data-anchor-id="por-nombre">Por nombre</h5>
-<div class="cell">
+<div id="d10fdbf0" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Elementos lógico y real:</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lista_con_nombres[<span class="fu">c</span>(<span class="st">&quot;logico&quot;</span>, <span class="st">&quot;real&quot;</span>)]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase de elementos:&quot;</span>, <span class="fu">class</span>(lista_con_nombres[<span class="fu">c</span>(<span class="st">&quot;logico&quot;</span>, <span class="st">&quot;real&quot;</span>)]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Elementos lógico y real:</span><span class="ch">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lista_con_nombres[c(<span class="st">&quot;logico&quot;</span>, <span class="st">&quot;real&quot;</span>)]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase de elementos:&quot;</span>, <span class="kw">class</span>(lista_con_nombres[c(<span class="st">&quot;logico&quot;</span>, <span class="st">&quot;real&quot;</span>)]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Elementos lógico y real:
-
-$logico
-[1] TRUE
-
-$real
-[1] 4.3
-
-Clase de elementos: list</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -4144,30 +4105,19 @@ Clase de elementos: list</code></pre>
 <p>Esta clase de vector, llamada atómico, se logra gracias a la coerción de los tipos de datos que componen la secuencia a uno en común. La función <em>combine/concatenate</em> es la responsable, puesto que si R detecta que mezclas tipos con <code>c()</code>, devolverá un vector tras aplicar la coerción al tipo común más general de entre los elementos. Según, de más a menos general:</p>
 <p><strong><em>character &gt; complex &gt; double &gt; integer &gt; logical</em></strong></p>
 <p>Porque sus elementos son de igual tipo, se define a estos vectores como estructuras homogéneas.</p>
-<div class="cell">
+<div id="5cd6ffad" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase de cada elemento de lista_sin_nombres:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lista_sin_nombres, class)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Defino un vector atómico a partir de las variables originales:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">=</span> <span class="fu">c</span>(verdad, nro_1, nro_2, nro_3)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;vector =&quot;</span>, <span class="fu">paste</span>(vector, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span> ))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Clase de los mismos elementos, pero esta vez en &#39;vector&#39;:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(vector, class)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase de cada elemento de lista_sin_nombres:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sapply(lista_sin_nombres, <span class="kw">class</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Defino un vector atómico a partir de las variables originales:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> c(verdad, nro_1, nro_2, nro_3)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;vector =&quot;</span>, paste(vector, collapse <span class="op">=</span> <span class="st">&quot;, &quot;</span> ))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Clase de los mismos elementos, pero esta vez en &#39;vector&#39;:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>sapply(vector, <span class="kw">class</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Clase de cada elemento de lista_sin_nombres:
-[1] &quot;logical&quot;   &quot;numeric&quot;   &quot;character&quot; &quot;numeric&quot;  
-
-Defino un vector atómico a partir de las variables originales:
-vector = TRUE, 50, sesenta, 4.3
-
-Clase de los mismos elementos, pero esta vez en &#39;vector&#39;:
-       TRUE          50     sesenta         4.3 
-&quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; </code></pre>
-</div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Nota 1:</strong> Se coerce usando las siguientes funciones: <code>as.integer(), as.double()/as.numeric(), as.complex(), as.character(), as.list().</code></p>
@@ -4177,18 +4127,13 @@ Clase de los mismos elementos, pero esta vez en &#39;vector&#39;:
 <h4 class="anchored" data-anchor-id="acceso-1">Acceso</h4>
 <section id="por-índiceposición-1" class="level5">
 <h5 class="anchored" data-anchor-id="por-índiceposición-1">Por índice/posición</h5>
-<div class="cell">
+<div id="99b14f0a" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Elemento en cuarta posición:&quot;</span>, vector[<span class="dv">4</span>])</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en primera y cuarta posición:&quot;</span>, <span class="fu">paste</span>(vector[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en segunda, tercera y cuarta posición:&quot;</span>, <span class="fu">paste</span>(vector[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Elemento en cuarta posición:&quot;</span>, vector[<span class="dv">4</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en primera y cuarta posición:&quot;</span>, paste(vector[c(<span class="dv">1</span>, <span class="dv">4</span>)], collapse <span class="op">=</span> <span class="st">&quot;, &quot;</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en segunda, tercera y cuarta posición:&quot;</span>, paste(vector[<span class="dv">2</span>:<span class="dv">4</span>], collapse <span class="op">=</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Elemento en cuarta posición: 4.3
-Elementos en primera y cuarta posición: TRUE, 4.3
-Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -4197,141 +4142,75 @@ Elementos en segunda, tercera y cuarta posición: 50, sesenta, 4.3</code></pre>
 <h3 class="anchored" data-anchor-id="data-frame">Data frame</h3>
 <section id="asignación-2" class="level4">
 <h4 class="anchored" data-anchor-id="asignación-2">Asignación</h4>
-<div class="cell">
+<div id="a58a532e" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>id_producto <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>precio_producto <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">5</span>, <span class="at">min =</span> <span class="dv">5</span>, <span class="at">max =</span> <span class="dv">100</span>), <span class="dv">2</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">id_producto =</span> id_producto, <span class="at">precio_producto =</span> precio_producto)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Data frame:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>id_producto <span class="op">=</span> <span class="dv">1</span>:<span class="dv">5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>precio_producto <span class="op">=</span> <span class="bu">round</span>(runif(<span class="dv">5</span>, <span class="bu">min</span> <span class="op">=</span> <span class="dv">5</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">100</span>), <span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.frame(id_producto <span class="op">=</span> id_producto, precio_producto <span class="op">=</span> precio_producto)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Data frame:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Data frame:
-  id_producto precio_producto
-1           1           96.43
-2           2           37.87
-3           3           79.99
-4           4           88.73
-5           5           79.12</code></pre>
-</div>
 </div>
 </section>
 <section id="acceso-2" class="level4">
 <h4 class="anchored" data-anchor-id="acceso-2">Acceso</h4>
 <section id="por-columna" class="level5">
 <h5 class="anchored" data-anchor-id="por-columna">Por columna</h5>
-<div class="cell">
+<div id="61f222f0" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Columna &#39;precio_producto&#39; como vector:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>precio_producto <span class="co"># igual que df[[ &quot;precio_producto&quot; ]]</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase:&quot;</span>, <span class="fu">class</span>(df<span class="sc">$</span>precio_producto))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Columna &#39;id_producto&#39; como data frame:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>]</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase:&quot;</span>, <span class="fu">class</span>(df[<span class="dv">1</span>]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Columna &#39;precio_producto&#39; como vector:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df$precio_producto <span class="co"># igual que df[[ &quot;precio_producto&quot; ]]</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase:&quot;</span>, <span class="kw">class</span>(df$precio_producto))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Columna &#39;id_producto&#39; como data frame:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase:&quot;</span>, <span class="kw">class</span>(df[<span class="dv">1</span>]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Columna &#39;precio_producto&#39; como vector:
-[1] 96.43 37.87 79.99 88.73 79.12
-Clase: numeric
-
-Columna &#39;id_producto&#39; como data frame:
-  id_producto
-1           1
-2           2
-3           3
-4           4
-5           5
-Clase: data.frame</code></pre>
-</div>
 </div>
 </section>
 <section id="por-fila" class="level5">
 <h5 class="anchored" data-anchor-id="por-fila">Por fila</h5>
-<div class="cell">
+<div id="d8042863" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Filas dos y cuatro como vector:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(df[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ])</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Verifico coerción a tipo más general:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">unlist</span>(df[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]), class)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Filas dos y cuatro como vector:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>unlist(df[c(<span class="dv">2</span>, <span class="dv">4</span>), ])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Verifico coerción a tipo más general:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sapply(unlist(df[c(<span class="dv">2</span>, <span class="dv">4</span>), ]), <span class="kw">class</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Filas dos y cuatro como vector:
-    id_producto1     id_producto2 precio_producto1 precio_producto2 
-            2.00             4.00            37.87            88.73 
-
-Verifico coerción a tipo más general:
-    id_producto1     id_producto2 precio_producto1 precio_producto2 
-       &quot;numeric&quot;        &quot;numeric&quot;        &quot;numeric&quot;        &quot;numeric&quot; </code></pre>
 </div>
-</div>
-<div class="cell">
+<div id="695e985e" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Filas uno y dos como data frame:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Filas uno, tres y cuatro como data frame:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>), ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Filas uno y dos como data frame:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>:<span class="dv">2</span>, ]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Filas uno, tres y cuatro como data frame:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df[c(<span class="dv">1</span>, <span class="dv">3</span>:<span class="dv">4</span>), ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Filas uno y dos como data frame:
-  id_producto precio_producto
-1           1           96.43
-2           2           37.87
-
-Filas uno, tres y cuatro como data frame:
-  id_producto precio_producto
-1           1           96.43
-3           3           79.99
-4           4           88.73</code></pre>
 </div>
-</div>
-<div class="cell">
+<div id="da8fee71" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Filas dos, cuatro y cinco como lista:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.list</span>(df[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>), ])</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Verifico clase:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>), ], class)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Filas dos, cuatro y cinco como lista:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>.<span class="bu">list</span>(df[c(<span class="dv">2</span>, <span class="dv">4</span>:<span class="dv">5</span>), ])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Verifico clase:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sapply(df[c(<span class="dv">2</span>, <span class="dv">4</span>:<span class="dv">5</span>), ], <span class="kw">class</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Filas dos, cuatro y cinco como lista:
-$id_producto
-[1] 2 4 5
-
-$precio_producto
-[1] 37.87 88.73 79.12
-
-
-Verifico clase:
-    id_producto precio_producto 
-      &quot;integer&quot;       &quot;numeric&quot; </code></pre>
-</div>
 </div>
 </section>
 <section id="por-fila-y-columna" class="level5">
 <h5 class="anchored" data-anchor-id="por-fila-y-columna">Por fila y columna</h5>
-<div class="cell">
+<div id="a6a500a6" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Fila cuatro, columna &#39;precio_producto&#39; por nombre:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;precio_producto&quot;</span>)] <span class="co"># igual que df$precio_producto[4]</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df[<span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;precio_producto&quot;</span>)])</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span>)]</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span>)], class)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Fila cuatro, columna &#39;precio_producto&#39; por nombre:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">4</span>, c(<span class="st">&quot;precio_producto&quot;</span>)] <span class="co"># igual que df$precio_producto[4]</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span>(df[<span class="dv">4</span>, c(<span class="st">&quot;precio_producto&quot;</span>)])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">4</span>:<span class="dv">5</span>, c(<span class="dv">1</span>)]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>sapply(df[<span class="dv">4</span>:<span class="dv">5</span>, c(<span class="dv">1</span>)], <span class="kw">class</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Fila cuatro, columna &#39;precio_producto&#39; por nombre:
-[1] 88.73
-[1] &quot;numeric&quot;
-
-Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
-[1] 4 5
-[1] &quot;integer&quot; &quot;integer&quot;</code></pre>
-</div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Nota 2:</strong> Llamar más de una columna convertiría el resultado de valor o vector atómico a <em>data frame</em>.</p>
@@ -4343,125 +4222,68 @@ Filas cuatro y cinco, columna &#39;id_producto&#39; por posición:
 <h3 class="anchored" data-anchor-id="matriz">Matriz</h3>
 <section id="asignación-3" class="level4">
 <h4 class="anchored" data-anchor-id="asignación-3">Asignación</h4>
-<div class="cell">
+<div id="465d13e6" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">size =</span> <span class="dv">9</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Matriz &#39;m1&#39; populada por columna:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>m1</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Matriz &#39;m2&#39; populada por fila:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>m2</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">6</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>), <span class="dv">2</span>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Vector aleatorio:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>m3</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(m3) <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>m3</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="op">=</span> matrix(sample(<span class="dv">5</span>:<span class="dv">20</span>, size <span class="op">=</span> <span class="dv">9</span>, replace <span class="op">=</span> TRUE), nrow <span class="op">=</span> <span class="dv">3</span>, ncol <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Matriz &#39;m1&#39; populada por columna:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>m1</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>m2 <span class="op">=</span> matrix(<span class="dv">1</span>:<span class="dv">9</span>, nrow <span class="op">=</span> <span class="dv">3</span>, byrow <span class="op">=</span> TRUE)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Matriz &#39;m2&#39; populada por fila:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>m2</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>m3 <span class="op">=</span> <span class="bu">round</span>(runif(<span class="dv">6</span>, <span class="bu">min</span> <span class="op">=</span> <span class="dv">0</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">1</span>), <span class="dv">2</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Vector aleatorio:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>m3</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>dim(m3) <span class="op">=</span> c(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>m3</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Matriz &#39;m1&#39; populada por columna:
-     [,1] [,2] [,3]
-[1,]   16   17   18
-[2,]   16    7   12
-[3,]   16   10    8
-
-Matriz &#39;m2&#39; populada por fila:
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9
-
-Vector aleatorio:
-[1] 0.95 0.32 0.93 0.51 0.66 0.72
-
-Matriz &#39;m3&#39; generada a partir de vector aleatorio, populada por columna:
-     [,1] [,2] [,3]
-[1,] 0.95 0.93 0.66
-[2,] 0.32 0.51 0.72</code></pre>
-</div>
 </div>
 </section>
 <section id="acceso-3" class="level4">
 <h4 class="anchored" data-anchor-id="acceso-3">Acceso</h4>
 <section id="por-índiceposición-2" class="level5">
 <h5 class="anchored" data-anchor-id="por-índiceposición-2">Por índice/posición</h5>
-<div class="cell">
+<div id="eeb730ef" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Elemento en F2C2 de &#39;m2&#39;:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>m2[<span class="dv">2</span>, <span class="dv">2</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en C2 de &#39;m2&#39;, como vector:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>m2[, <span class="dv">2</span>]</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en C2 de &#39;m2&#39;, como submatriz:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>m2[, <span class="dv">2</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>m2[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Elemento en F2C2 de &#39;m2&#39;:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>m2[<span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en C2 de &#39;m2&#39;, como vector:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>m2[, <span class="dv">2</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en C2 de &#39;m2&#39;, como submatriz:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>m2[, <span class="dv">2</span>, drop <span class="op">=</span> FALSE]</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>m2[c(<span class="dv">1</span>, <span class="dv">2</span>), c(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Elemento en F2C2 de &#39;m2&#39;:
-[1] 5
-
-Elementos en C2 de &#39;m2&#39;, como vector:
-[1] 2 5 8
-
-Elementos en C2 de &#39;m2&#39;, como submatriz:
-     [,1]
-[1,]    2
-[2,]    5
-[3,]    8
-
-Elementos en F1/F2 y C1/C3 de &#39;m2&#39;, como submatriz:
-     [,1] [,2]
-[1,]    1    3
-[2,]    4    6</code></pre>
-</div>
 </div>
 </section>
 <section id="por-nombre-1" class="level5">
 <h5 class="anchored" data-anchor-id="por-nombre-1">Por nombre</h5>
-<div class="cell">
+<div id="dc28cde3" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(m3) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;r1&quot;</span>, <span class="st">&quot;r2&quot;</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m3) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>m3[, <span class="st">&quot;c&quot;</span>]</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>m3[, <span class="st">&quot;c&quot;</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rownames(m3) <span class="op">=</span> c(<span class="st">&quot;r1&quot;</span>, <span class="st">&quot;r2&quot;</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>colnames(m3) <span class="op">=</span> c(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>m3[, <span class="st">&quot;c&quot;</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>m3[, <span class="st">&quot;c&quot;</span>, drop <span class="op">=</span> FALSE]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Elementos en columna &#39;c&#39; de &#39;m3&#39; como vector:
-  r1   r2 
-0.66 0.72 
-
-Elementos en columna &#39;c&#39; de &#39;m3&#39; como submatriz:
-      c
-r1 0.66
-r2 0.72</code></pre>
-</div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Nota 3:</strong> Se puede convertir de matriz a <em>data frame</em> y viceversa con <code>as.data.frame()</code> y <code>as.matrix()</code>, respectivamente.</p>
 </blockquote>
-<div class="cell">
+<div id="31d139b4" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Convierto &#39;m1&#39; a data frame:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_from_m1 <span class="ot">=</span> <span class="fu">as.data.frame</span>(m1)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df_from_m1</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase:&quot;</span>, <span class="fu">class</span>(df_from_m1))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Convierto &#39;m1&#39; a data frame:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_from_m1 <span class="op">=</span> <span class="im">as</span>.data.frame(m1)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_from_m1</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase:&quot;</span>, <span class="kw">class</span>(df_from_m1))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Convierto &#39;m1&#39; a data frame:
-  V1 V2 V3
-1 16 17 18
-2 16  7 12
-3 16 10  8
-Clase: data.frame</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -4565,55 +4387,40 @@ Clase: data.frame</code></pre>
 <h2 class="anchored" data-anchor-id="funciones-básicas">Funciones básicas</h2>
 <section id="sum" class="level3">
 <h3 class="anchored" data-anchor-id="sum">Sum</h3>
-<div class="cell">
+<div id="6cb83631" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Suma elementos de C3 de &#39;m2&#39;:&quot;</span>, <span class="fu">sum</span>(m2[, <span class="dv">3</span>]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Suma elementos de C3 de &#39;m2&#39;:&quot;</span>, <span class="bu">sum</span>(m2[, <span class="dv">3</span>]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Suma elementos de C3 de &#39;m2&#39;: 18</code></pre>
-</div>
 </div>
 </section>
 <section id="mean" class="level3">
 <h3 class="anchored" data-anchor-id="mean">Mean</h3>
-<div class="cell">
+<div id="5752ebb8" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Promedio de precios de columna &#39;precio_producto&#39;:&quot;</span>, <span class="fu">mean</span>(df<span class="sc">$</span>precio_producto))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Promedio de precios de columna &#39;precio_producto&#39;:&quot;</span>, mean(df$precio_producto))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Promedio de precios de columna &#39;precio_producto&#39;: 76.428</code></pre>
-</div>
 </div>
 </section>
 <section id="length" class="level3">
 <h3 class="anchored" data-anchor-id="length">Length</h3>
-<div class="cell">
+<div id="fc33c7f3" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Cantidad de elementos que componen a &#39;vector&#39;:&quot;</span>, <span class="fu">length</span>(vector))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Cantidad de elementos que componen a &#39;vector&#39;:&quot;</span>, length(vector))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Cantidad de elementos que componen a &#39;vector&#39;: 4</code></pre>
-</div>
 </div>
 </section>
 <section id="class" class="level3">
 <h3 class="anchored" data-anchor-id="class">Class</h3>
-<div class="cell">
+<div id="ce8e4d5c" class="cell" data-results="hold">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Clase de &#39;lista_sin_nombres&#39;:&quot;</span>, <span class="fu">class</span>(lista_sin_nombres))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Clase de cada elemento de &#39;lista_sin_nombres&#39;:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lista_sin_nombres, class)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;Clase de &#39;lista_sin_nombres&#39;:&quot;</span>, <span class="kw">class</span>(lista_sin_nombres))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cat(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Clase de cada elemento de &#39;lista_sin_nombres&#39;:</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sapply(lista_sin_nombres, <span class="kw">class</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Clase de &#39;lista_sin_nombres&#39;: list
-
-Clase de cada elemento de &#39;lista_sin_nombres&#39;:
-[1] &quot;logical&quot;   &quot;numeric&quot;   &quot;character&quot; &quot;numeric&quot;  </code></pre>
-</div>
 </div>
 </section>
 </section>
